@@ -1,0 +1,55 @@
+<h1>Mostrar usuarios</h1>
+<table id="tabela">
+    <thead>        
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Login
+            </th>
+             <th>
+                Senha
+            </th>
+            <th>
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>    
+    <tbody>
+        <% @usuarios.each do |usuario| %>
+            <tr>
+                <td>
+                    <%= usuario.id %>
+                </td>   
+                <td>
+                    <%= usuario.nome %>
+                </td>   
+                <td>
+                    <%= usuario.email %>
+                </td> 
+                <td>
+                    <%= usuario.login %>
+                </td> 
+                <td>
+                    <%= usuario.senha %>
+                </td>
+                <td>
+                    <%=  link_to('Editar',edit_usuario_path(usuario.id)) %>
+                </td>
+                <td>
+                   
+                </td>                   
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+
