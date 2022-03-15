@@ -1,5 +1,35 @@
 #tabela{
-    tr, th , td{
-    border: solid 1px black
-    }   
+  tr,th,td{
+      border: solid 1px black;
+    }
+  th{
+      background-color: aqua;
+      color: rgb(9, 9, 14);
+      text-transform: capitalize;
+    }
+    width: 1788px;
+    background-image:linear-gradient(rgb(62, 224, 3),rgb(130, 236, 0),rgb(0, 255, 0));
+}
+#edibody{
+    background-color: rgba(177, 177, 177, 0.788);
+}
+
+#editar{
+    color: rgb(45, 0, 243);
+    text-decoration: none;   
+}
+#editar:hover{
+    color: rgb(255, 0, 0);
+    text-decoration: none;
+   
+}
+#submit{
+    margin-left: 120px;
+    width: 60px;
+    background-color: rgb(88, 87, 180);
+}
+#submit:hover{
+    margin-left: 120px;
+    color: red;
+   
 }

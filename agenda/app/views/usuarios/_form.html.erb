@@ -1,0 +1,34 @@
+<% if  @usuario.errors.any? %>
+    <% @usuario.errors.full_messages.each do |erros|%>
+        <%= erros.gsub('Nova senha',"") %>
+        <br>
+    <%end %>
+<%end %>
+<head>
+</head id="edibody"> 
+<body id="edibody"> 
+    <%= form_for @usuario do |f| %>
+        <%= f.label :nome, 'Nome' %>
+        <%= f.text_field :nome  %>
+        <br>
+        <br>
+        <%= f.label :email, 'Email' %>
+        <%= f.text_field :email %>
+        <br>
+        <br>
+        <%= f.label :login, 'Login' %>
+        <%= f.text_field :login %>
+        <br>
+        <br>
+        <%= f.label :nova_senha, 'Nova Senha' %>
+        <%= f.password_field :nova_senha  %>
+        <br>
+        <br>
+        <%= f.label :confirma_senha, 'Confirma Senha' %>
+        <%= f.password_field :confirma_senha  %>
+
+        <%= f.submit 'Salvar', id: :submit %>
+    <% end %>
+    <%= link_to 'voltar', usuarios_path %>
+
+</body>

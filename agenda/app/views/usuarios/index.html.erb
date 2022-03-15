@@ -1,55 +1,68 @@
-<h1>Mostrar usuarios</h1>
-<table id="tabela">
-    <thead>        
-        <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                Nome
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Login
-            </th>
-             <th>
-                Senha
-            </th>
-            <th>
-            </th>
-            <th>
-            </th>
-        </tr>
-    </thead>    
-    <tbody>
-        <% @usuarios.each do |usuario| %>
-            <tr>
-                <td>
-                    <%= usuario.id %>
-                </td>   
-                <td>
-                    <%= usuario.nome %>
-                </td>   
-                <td>
-                    <%= usuario.email %>
-                </td> 
-                <td>
-                    <%= usuario.login %>
-                </td> 
-                <td>
-                    <%= usuario.senha %>
-                </td>
-                <td>
-                    <%=  link_to('Editar',edit_usuario_path(usuario.id)) %>
-                </td>
-                <td>
-                   
-                </td>                   
-            </tr>
-        <% end %>
-    </tbody>
-</table>
-
+<head>
+</head> 
+<body id="edibody"> 
+    <h1>Mostrar usuarios</h1>
+    <% if @usuarios.any? %>
+        <table id="tabela">
+            <thead>        
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Nome
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Login
+                    </th>
+                    <th>
+                        Senha
+                    </th>
+                    <th>
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>    
+            <tbody>
+                <% @usuarios.each do |usuario| %>
+                    <tr>
+                        <td>
+                            <%= usuario.id %>
+                        </td>   
+                        <td>
+                            <%= link_to(usuario.nome, usuario_path(usuario.id)) %>
+                        </td>   
+                        <td>
+                            <%= usuario.email %>
+                        </td> 
+                        <td>
+                            <%= usuario.login %>
+                        </td> 
+                        <td>
+                            <%= usuario.senha %>
+                        </td>
+                        <td>
+                            <%=  link_to('Editar',edit_usuario_path(usuario.id), id: :editar) %>
+                        </td>
+                        <td>
+                            <%= link_to('Deletar',usuario_path(usuario.id), method: :delete, confirm:'vc tem certeza que quer apagar') %>
+                        </td>                   
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% else   %>
+        <h1> Nao há registros</h1>
+    <% end %>
+    <br>
+    <%= link_to 'novo usuario', new_usuario_path %>
+    <br>
+    <br>
+    <%= link_to 'sair do sistema', logout_path %>
+    <%= link_to 'Contatos', contatos_path %>
+</body>
 
