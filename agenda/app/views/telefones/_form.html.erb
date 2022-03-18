@@ -1,0 +1,21 @@
+<% if @telefone.errors.any? %>
+    <% @telefone.errors.full_messages.each do |erros| %>
+        <%= erros %>
+        <br>
+    <% end %>
+<% end %>
+
+<% url = @telefone.new_record? ? contato_telefones_path() : contato_telefone_path() %>
+ 
+<%= form_for @telefone, url: url do |te| %>
+      <%= te.label :numero,'Numero' %>
+    <%= te.text_field :numero %>
+    <%= te.label :principal, 'principal' %>
+    <%= te.check_box :principal, id: :check %>
+    <%= te.submit 'salvar' %>
+<% end %>
+<%= link_to 'voltar', contato_path(params[:contato_id]) %>
+
+<%= image_tag '99e6ced213a4704d69b61c6cc708a46f--hand-emoji-the-emoji.jpg', id: :img %>
+<%= image_tag '7fd28169f5f7eb1e922d0d04aab6007e.jpg', id: :img1 %>
+

@@ -1,0 +1,14 @@
+
+<h1> Contato id: <%= @contato.id %></h1>
+<h3>Nome: <%= @contato.nome %></h3>
+<h3>Email: <%= @contato.email %></h3>
+<div id="link1">
+    <%= link_to 'voltar', contatos_path, id: :link %>
+</div>
+<div id="link1">
+    <%= link_to 'Novo Telefone', new_contato_telefone_path(@contato.id), id: :link2%>
+</div>
+
+   <%= render 'index_telefones' %>    
+
+

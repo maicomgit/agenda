@@ -6,6 +6,7 @@ class Usuario < ActiveRecord::Base
     validates :email, format: /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
     validate :valida_senha
     before_save :criptografa_senha
+    has_many :contatos
 
     def valida_senha
         return if self.nova_senha == self.confirma_senha

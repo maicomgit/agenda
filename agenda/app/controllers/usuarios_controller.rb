@@ -39,8 +39,4 @@ class UsuariosController < ApplicationController
         @usuario.destroy
         redirect_to usuarios_path
     end
-
-
-
-    
 end

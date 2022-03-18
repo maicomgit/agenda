@@ -1,0 +1,48 @@
+<h1> Contatos</h1>
+<h2> usuario nome: <%= @usuario_logado.login  %> </h2>
+<table id="tabela">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>  
+            <th>
+                Email
+            </th>
+            <th>
+                Numero Principal
+            </th>
+            <th>
+            </th>  
+            <th>
+            </th>    
+        </tr>
+    </thead>    
+    <tbody>
+        <% @contatos.each do |c| %>
+            <tr>
+                <td>
+                    <%= link_to(c.nome,contato_path(c.id)) %>
+                </td>
+                 <td>
+                    <%= c.email %>
+                </td>
+                <td>
+                   <%= @principal %>
+                </td>
+                <td>
+                    <%= link_to('editar', edit_contato_path(c.id), id: :editar) %>
+                </td>
+                 <td>
+                    <%= link_to('Excluir', contatos_path(c.id), method: :delete, confirm: 'vc tem certeza que quer apagar') %>
+                </td>
+            </tr>
+        <%end %>
+    </tbody>    
+</table>
+<div id="link1">
+<%= link_to 'novo contato', new_contato_path, id: :link %>
+</div>
+<div id="link3">
+<%= link_to 'voltar', usuarios_path, id: :link2 %>
+</div>

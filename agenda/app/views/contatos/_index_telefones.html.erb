@@ -1,0 +1,36 @@
+<h1>Números</h1>
+<table id="tabela">
+            <thead>        
+                <tr>
+                    <th>
+                        Numero
+                    </th>
+                    <th>
+                        Principal ?
+                    </th>                 
+                    <th>     
+                    </th>
+                    <th>     
+                    </th>                     
+                </tr>
+            </thead>    
+            <tbody>               
+                <% @telefones.each do |tele| %>
+                    <tr>
+                        <td>
+                            <%= tele.numero %>
+                        </td>                          
+                        <td>
+                            <%= tele.principal ? 'Sim' : 'Nao' %>
+                        </td> 
+                        <td>                         
+                            <%=  link_to('Editar',edit_contato_telefone_path(tele.contato.id, tele.id), id: :editar) %>
+                        </td>
+                        <td>
+                            <%= link_to('Deletar',contato_telefone_path(tele.contato.id, tele.id), method: :delete, confirm:'vc tem certeza que quer apagar') %>
+                        </td>                   
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+        

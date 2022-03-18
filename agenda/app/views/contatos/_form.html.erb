@@ -1,0 +1,18 @@
+<% if @contato.errors.any? %>
+    <% @contato.errors.full_messages.each do |erros| %>
+        <%= erros %>
+        <br>
+    <% end %>
+<% end %>
+<%# <%= @url = @telefone.new_record? ? contato_telefones_path() : contato_telefone_path() %> %>
+ 
+<%= form_for @contato do |contato|%>
+    <%= contato.label :nome, 'nome' %>
+    <%= contato.text_field :nome %>
+    <%= contato.label :email, 'email' %>
+    <%= contato.text_field :email%>
+    <%= contato.submit 'salvar' %>
+<% end %>
+<div id="link1">
+<%= link_to 'voltar', contatos_path, id: :link  %>
+<div>
