@@ -1,6 +1,7 @@
 class ContatosController < ApplicationController
     def index
-        @contatos = @usuario_logado.contatos.all
+
+        @contatos = @usuario_logado.contatos.join_telefone_principal
     end    
 
     def new 
@@ -38,7 +39,9 @@ class ContatosController < ApplicationController
         @contato = @usuario_logado.contatos.find_by_id(params[:id])  
         @telefones = @contato.telefones 
 
-     
     end    
+
+      
+
 
 end    

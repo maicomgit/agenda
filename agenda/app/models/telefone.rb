@@ -19,3 +19,4 @@ class Telefone < ActiveRecord::Base
         end   
     end    
 end    
+
